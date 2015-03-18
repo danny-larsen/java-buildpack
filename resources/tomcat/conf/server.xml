@@ -19,7 +19,11 @@
 <Server port='-1'>
 
     <Service name='Catalina'>
-        <Connector port='${http.port}' bindOnInit="false"/>
+        <Connector port='${http.port}' bindOnInit="false"
+		compression="on"
+         useSendfile="false"
+         compressionMinSize="1024"
+         compressableMimeType="text/css,application/html,text/html,application/javascript,application/xhtml+xml,application/xml,application/json" />
 
         <Engine defaultHost='localhost' name='Catalina'>
             <Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="x-forwarded-proto"/>
